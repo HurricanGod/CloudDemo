@@ -1,7 +1,8 @@
 package cn.hurrican.eurekaclient.service;
 
+import cn.hurrican.model.MySqlConfig;
+
 import java.util.List;
-import java.util.Map;
 
 /**
  * 获取MySQL配置信息的Service
@@ -12,6 +13,6 @@ import java.util.Map;
  */
 public interface MysqlConfigService {
 
-    List<Map<String, String>> getConfig();
+    List<MySqlConfig> getConfig();
 
 }

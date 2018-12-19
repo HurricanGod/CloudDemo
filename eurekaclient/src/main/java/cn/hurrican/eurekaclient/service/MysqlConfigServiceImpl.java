@@ -1,11 +1,10 @@
 package cn.hurrican.eurekaclient.service;
 
+import cn.hurrican.model.MySqlConfig;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Hurrican
@@ -15,13 +14,14 @@ import java.util.Map;
 @Service
 public class MysqlConfigServiceImpl implements MysqlConfigService {
     @Override
-    public List<Map<String, String>> getConfig() {
-        ArrayList<Map<String, String>> list = new ArrayList<>(10);
-        HashMap<String, String> map = new HashMap<>(4);
-        map.put("host", "127.0.0.1");
-        map.put("user", "root");
-        map.put("version", "1.0.0");
-        list.add(map);
+    public List<MySqlConfig> getConfig() {
+        ArrayList<MySqlConfig> list = new ArrayList<>(10);
+        MySqlConfig config = new MySqlConfig();
+        config.setDb("test");
+        config.setVersion(System.currentTimeMillis());
+        config.setHost("127.0.0.1");
+        config.setUser("root");
+        list.add(config);
         return list;
     }
 }
