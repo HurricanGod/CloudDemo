@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author Hurrican
+ * @Date 2018/12/24  11:30
+ * @since 1.0.0
+ */
+
 @RestController
 public class AppConfigController {
 
