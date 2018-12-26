@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eurka-cluster-server
+
+---
+spring:
+  profiles: hurrican1
+server:
+  port: 9000
+eureka:
+  instance:
+    hostname: hurrican1
+  client:
+    serviceUrl:
+      defaultZone: http://hurrican2:9001/eureka/
+
+---
+spring:
+  profiles: hurrican2
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: hurrican2
+  client:
+    serviceUrl:
+      defaultZone: http://hurrican1:9000/eureka/
+
