@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-feign
+
+server:
+  port: 9010
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service1.hurrican.cn:9000/eureka/,http://service2.hurrican.cn:9001/eureka/

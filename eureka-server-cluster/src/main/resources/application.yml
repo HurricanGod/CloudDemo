@@ -1,6 +1,12 @@
 spring:
   application:
     name: eurka-cluster-server
+#  security:
+#    basic:
+#      enabled: true
+#    user:
+#      name: admin
+#      password: 654321
 
 ---
 spring:
@@ -9,10 +15,10 @@ server:
   port: 9000
 eureka:
   instance:
-    hostname: hurrican1
+    hostname: service1.hurrican.cn
   client:
     serviceUrl:
-      defaultZone: http://hurrican2:9001/eureka/
+      defaultZone: http://service2.hurrican.cn:9001/eureka/
 
 ---
 spring:
@@ -21,8 +27,8 @@ server:
   port: 9001
 eureka:
   instance:
-    hostname: hurrican2
+    hostname: service2.hurrican.cn
   client:
     serviceUrl:
-      defaultZone: http://hurrican1:9000/eureka/
+      defaultZone: http://service1.hurrican.cn:9000/eureka/
 
