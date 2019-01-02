@@ -10,7 +10,7 @@
     <artifactId>hystrix-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hystrix-consumer</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Spring Cloud Project For Hystrix</description>
 
 
     <dependencies>
@@ -23,6 +23,26 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
     </dependencies>
 
