@@ -10,8 +10,8 @@ spring:
 zuul:
   routes:
     ribbonApi:
-      path: /ribbon/**
+      path: /visitor/**
       serviceId: hystrix4ribbon-consumer
     feignApi:
-      path: /feign/**
+      path: /vip/**
       serviceId: hystrix4feign-consumer

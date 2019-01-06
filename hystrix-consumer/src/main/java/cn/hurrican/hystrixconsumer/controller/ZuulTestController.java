@@ -1,5 +1,8 @@
 package cn.hurrican.hystrixconsumer.controller;
 
+import cn.hurrican.hystrixconsumer.service.AppConfigService4Feign;
+import cn.hurrican.hystrixconsumer.service.AppConfigService4Ribbon;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,16 +16,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ZuulTestController {
 
+    @Autowired
+    private AppConfigService4Ribbon appConfigService4Ribbon;
 
-    @RequestMapping(value = "/ribbon/queryHostname", produces = "application/json;charset=UTF-8")
-    public String queryRibbonHostname() {
-        return "ribbon_SERVICE-CLIENT";
+    @Autowired
+    private AppConfigService4Feign appConfigService4Feign;
+
+    @RequestMapping(value = "/ribbon/getAppConfig4Zuul", produces = "application/json;charset=UTF-8")
+    public String getAppConfig() {
+        return appConfigService4Ribbon.getAppConfig() + "  ribbon";
     }
 
 
-    @RequestMapping(value = "/feign/queryHostname", produces = "application/json;charset=UTF-8")
-    public String queryFeignHostname() {
-        return "feign_SERVICE-CLIENT";
+    @RequestMapping(value = "/feign/queryAppConfig4Zuul", produces = "application/json;charset=UTF-8")
+    public String queryAppConfig() {
+        return appConfigService4Feign.getAppConfig() + "  feign";
     }
 
 }

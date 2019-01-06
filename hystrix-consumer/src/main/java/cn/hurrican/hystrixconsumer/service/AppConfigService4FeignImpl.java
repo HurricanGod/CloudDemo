@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
  * @since 1.0.0
  */
 @Service
-public class UserService4FeignImpl implements UserService4Feign {
+public class AppConfigService4FeignImpl implements AppConfigService4Feign {
     @Override
-    public String getUserInfo() {
+    public String getAppConfig() {
         return "server too busy —— feign hystrix";
     }
 }

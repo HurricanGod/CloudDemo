@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @create 2019/1/2  15:54
  * @since 1.0.0
  */
-@FeignClient(value = "SERVICE-CLIENT", fallback = UserService4FeignImpl.class)
-public interface UserService4Feign {
+@FeignClient(value = "SERVICE-CLIENT", fallback = AppConfigService4FeignImpl.class)
+public interface AppConfigService4Feign {
 
     @RequestMapping(value = "queryConfig", method = RequestMethod.GET)
-    String getUserInfo();
+    String getAppConfig();
 }

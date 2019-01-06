@@ -1,7 +1,7 @@
 package cn.hurrican.hystrixconsumer.controller;
 
-import cn.hurrican.hystrixconsumer.service.UserService4Feign;
-import cn.hurrican.hystrixconsumer.service.UserService4Ribbon;
+import cn.hurrican.hystrixconsumer.service.AppConfigService4Feign;
+import cn.hurrican.hystrixconsumer.service.AppConfigService4Ribbon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class HystrixTestController {
 
     @Autowired
-    private UserService4Ribbon userService4Ribbon;
+    private AppConfigService4Ribbon appConfigService4Ribbon;
 
     @Autowired
-    private UserService4Feign userService4Feign;
+    private AppConfigService4Feign appConfigService4Feign;
 
-    @RequestMapping(value = "/ribbon/getUserInfo", produces = "application/json;charset=UTF-8")
-    public String getUserInfo() {
-        return userService4Ribbon.getUserInfo();
+    @RequestMapping(value = "/ribbon/getAppConfig", produces = "application/json;charset=UTF-8")
+    public String getAppConfig() {
+        return appConfigService4Ribbon.getAppConfig();
     }
 
 
-    @RequestMapping(value = "/feign/getUserInfo", produces = "application/json;charset=UTF-8")
-    public String queryUserInfo() {
-        return userService4Feign.getUserInfo();
+    @RequestMapping(value = "/feign/queryAppConfig", produces = "application/json;charset=UTF-8")
+    public String queryAppConfig() {
+        return appConfigService4Feign.getAppConfig();
     }
 
 }

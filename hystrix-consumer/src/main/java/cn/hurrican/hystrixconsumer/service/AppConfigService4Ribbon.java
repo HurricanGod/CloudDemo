@@ -16,15 +16,15 @@ import java.util.List;
  * @since 1.0.0
  */
 @Service
-public class UserService4Ribbon {
+public class AppConfigService4Ribbon {
 
 
     @Autowired
     private RestTemplate restTemplate;
 
 
-    @HystrixCommand(fallbackMethod = "getDefaultUserInfo")
-    public String getUserInfo() {
+    @HystrixCommand(fallbackMethod = "getDefaultAppConfig")
+    public String getAppConfig() {
         String url = "http://SERVICE-CLIENT/queryConfig";
         ResponseEntity<List> responseEntity = restTemplate.getForEntity(url, List.class);
         List list = responseEntity.getBody();
@@ -38,7 +38,7 @@ public class UserService4Ribbon {
     }
 
 
-    public String getDefaultUserInfo() {
+    public String getDefaultAppConfig() {
         return "server too busy —— ribbon hystrix";
     }
 }
