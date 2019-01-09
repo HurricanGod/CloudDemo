@@ -13,5 +13,5 @@ zuul:
       path: /visitor/**
       serviceId: hystrix4ribbon-consumer
     feignApi:
-      path: /vip/**
+      path: /admin/**
       serviceId: hystrix4feign-consumer
