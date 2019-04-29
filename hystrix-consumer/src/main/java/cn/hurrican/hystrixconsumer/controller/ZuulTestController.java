@@ -22,15 +22,16 @@ public class ZuulTestController {
     @Autowired
     private AppConfigService4Feign appConfigService4Feign;
 
-    @RequestMapping(value = "/ribbon/getAppConfig4Zuul", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/getAppConfig", produces = "application/json;charset=UTF-8")
     public String getAppConfig() {
-        return appConfigService4Ribbon.getAppConfig() + "  ribbon";
+        return appConfigService4Ribbon.getAppConfig() + "  visitor";
     }
 
 
-    @RequestMapping(value = "/feign/queryAppConfig4Zuul", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/queryAppConfig", produces = "application/json;charset=UTF-8")
     public String queryAppConfig() {
-        return appConfigService4Feign.getAppConfig() + "  feign";
+        return appConfigService4Feign.getAppConfig() + "  admin";
     }
+
 
 }
