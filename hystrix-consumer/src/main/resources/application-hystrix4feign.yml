@@ -10,6 +10,5 @@ spring:
     name: hystrix4feign-consumer
 
 feign:
-
   hystrix:
     enabled: true

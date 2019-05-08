@@ -1,25 +1,19 @@
-package cn.hurrican.zuulfilter;
+package cn.hurrican.appuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
- * 服务网关
- *
  * @author Hurrican
- * @Date 2019/1/3  17:57
- * @since 1.0.0
+ * @date 2019/5/8
  */
-@SpringBootApplication
-@EnableZuulProxy
 @EnableDiscoveryClient
-public class ZuulfilterApplication {
+@SpringBootApplication
+public class UserApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZuulfilterApplication.class, args);
+        SpringApplication.run(UserApp.class, args);
     }
 
 }
-

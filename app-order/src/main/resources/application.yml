@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: app-order
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+server:
+  port: 6090
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    root: info
+    org.springframework: warn
+ribbon:
+  ConnectTimeout: 2000
+  ReadTimeout: 5000
+  MaxAutoRetriesNextServer: 0
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
+          enabled: true
+        isolation:
+          thread:
+            #断路器超时时间，默认1000ms
+            timeoutInMilliseconds: 5000
+      circuitBreaker:
+        # 时间窗内失败请求达到配置值断路器会打开
+        requestVolumeThreshold: 20
+        # 设置当断路器打开之后的休眠时间窗，休眠时间窗结束后，会将断路器置为“半开”状态，尝试熔断的请求命令
+        sleepWindowInMilliseconds: 5000
+        # 强制打开断路器，会拒绝所有请求，比 forceClosed 优先级高
+        forceOpen: false
+feign:
+  hystrix:
+    enabled: true
+
+
+

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: app-gateway
+server:
+  port: 6080
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    root: info
+# 使用服务发现方式进行转发，超时配置使用 ribbon.ReadTimeout 和 ribbon.ConnectTimeout
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 1000
+feign:
+  hystrix:
+    enabled: true
+zuul:
+  routes:
+    goods_order:
+      path: /goods/order/**
+      service-id: app-order
+
+
